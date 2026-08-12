@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sponsor EcoHackOyo — Oyo State's biggest Climate &amp; Economic Innovation Summit. Reach 500+ young innovators, government representatives and investors.">
+  <meta name="theme-color" content="#087a3d">
+  <title>Become a Sponsor | EcoHackOyo 2026</title>
+  <link rel="icon" href="assets/ecohackoyo-flyer.jpg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <nav class="nav container" aria-label="Primary navigation">
+      <a class="brand" href="index.html" aria-label="EcoHackOyo home">
+        <span class="brand-mark" aria-hidden="true">🌱</span>
+        <span><strong>ECOHACKOYO</strong><small>OYO'S BIGGEST INNOVATION SUMMIT</small></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-menu" id="primary-menu">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="index.html#about">About</a>
+        <a class="nav-link" href="index.html#sponsor">Why Sponsor</a>
+        <a class="nav-link" href="index.html#faq">FAQ</a>
+        <a class="nav-cta active" href="register-sponsor.html">Sponsor Signup</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="hero-pattern pattern-one" aria-hidden="true"></div>
+      <div class="container">
+        <p class="breadcrumb"><a href="index.html">Home</a> / Become a Sponsor</p>
+        <span class="track-tag" style="margin-bottom:16px;">PARTNER WITH US</span>
+        <h1>Put your brand in front of Oyo's next generation of <em>builders.</em></h1>
+        <p class="lead">Sponsors get visibility with 500 hackathon participants, live exposure at the two-day Ibadan summit in front of government representatives and investors, and a direct line to Oyo State's most driven young talent.</p>
+        <div class="meta-row">
+          <span class="pill">📅 Oct 22–23, 2026 · Ibadan</span>
+          <span class="pill">👥 500+ Participants</span>
+          <span class="pill">🏛️ Government &amp; Investor Audience</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-sm" style="padding-top: 10px;">
+      <div class="container">
+        <div class="tier-grid reveal">
+          <div class="tier-card">
+            <h3>Exhibition / In-Kind</h3>
+            <p class="tier-note">For organizations supporting with resources, venues, tools or media.</p>
+            <ul>
+              <li>Logo on website &amp; flyer</li>
+              <li>Booth at the exhibition day</li>
+              <li>Social media mention</li>
+            </ul>
+          </div>
+          <div class="tier-card highlight">
+            <h3>Gold Sponsor</h3>
+            <p class="tier-note">For organizations investing directly in the program and summit.</p>
+            <ul>
+              <li>Everything in Exhibition tier</li>
+              <li>Speaking slot at the Main Summit</li>
+              <li>Logo across all program materials</li>
+              <li>First access to top 20 shortlist</li>
+            </ul>
+          </div>
+          <div class="tier-card">
+            <h3>Platinum / Headline</h3>
+            <p class="tier-note">For lead partners co-branding the summit.</p>
+            <ul>
+              <li>Everything in Gold tier</li>
+              <li>Co-branded stage &amp; signage</li>
+              <li>Dedicated press mention</li>
+              <li>Direct engagement with top teams</li>
+            </ul>
+          </div>
+        </div>
+        <p style="text-align:center; color: var(--muted); font-size:.72rem; margin-top: 18px;">
+          Tiers and benefits shown are indicative — final packages are confirmed with our partnerships team after you register below.
+        </p>
+      </div>
+    </section>
+
+    <section class="form-page" style="padding-top: 10px;">
+      <div class="container form-page-grid">
+        <div class="form-side reveal">
+          <h2>Why sponsor EcoHackOyo</h2>
+          <p>EcoHackOyo brings together 500 young innovators, entrepreneurs and problem-solvers from across Oyo State — with the final exhibition held in front of government representatives, investors and the wider public.</p>
+          <ul>
+            <li><b>✓</b> Brand visibility to 500+ engaged youth</li>
+            <li><b>✓</b> Exhibition day exposure in Ibadan</li>
+            <li><b>✓</b> Government &amp; investor audience</li>
+            <li><b>✓</b> CSR / ESG alignment with climate &amp; youth economic empowerment</li>
+            <li><b>✓</b> Early access to standout talent and ideas</li>
+          </ul>
+        </div>
+
+        <div class="form-card reveal reveal-delay">
+          <form id="reg-form" data-ecohackoyo-form
+                data-success-title="Thank you!"
+                data-success-text="Thanks for your interest in sponsoring EcoHackOyo. Our partnerships team will reach out within a few business days to discuss tiers and next steps."
+                action="https://ecohackoyo-api.onrender.com/api/register/sponsor" method="POST">
+            <input type="hidden" name="form_type" value="Sponsor Registration">
+
+            <div class="form-grid">
+              <label class="full">
+                <span>Organization name <span class="req">*</span></span>
+                <input type="text" name="organization_name" required maxlength="120" placeholder="Your organization">
+                <small class="error" data-error-for="organization_name"></small>
+              </label>
+
+              <label>
+                <span>Contact person <span class="req">*</span></span>
+                <input type="text" name="contact_name" required maxlength="80" placeholder="Full name">
+                <small class="error" data-error-for="contact_name"></small>
+              </label>
+
+              <label>
+                <span>Role / title <span class="req">*</span></span>
+                <input type="text" name="contact_role" required maxlength="80" placeholder="e.g. Marketing Lead">
+                <small class="error" data-error-for="contact_role"></small>
+              </label>
+
+              <label>
+                <span>Email address <span class="req">*</span></span>
+                <input type="email" name="email" required maxlength="120" placeholder="you@company.com">
+                <small class="error" data-error-for="email"></small>
+              </label>
+
+              <label>
+                <span>Phone number <span class="req">*</span></span>
+                <input type="tel" name="phone" required maxlength="20" placeholder="080X XXX XXXX">
+                <small class="error" data-error-for="phone"></small>
+              </label>
+
+              <label class="full">
+                <span>Organization website (if any)</span>
+                <input type="url" name="website" maxlength="150" placeholder="https://">
+              </label>
+
+              <label class="full">
+                <span>Sponsorship interest <span class="req">*</span></span>
+                <div class="radio-pills" data-radio-required="tier">
+                  <label><input type="radio" name="tier" value="exhibition_in_kind" required><span>Exhibition / In-Kind</span></label>
+                  <label><input type="radio" name="tier" value="gold"><span>Gold Sponsor</span></label>
+                  <label><input type="radio" name="tier" value="platinum"><span>Platinum / Headline</span></label>
+                  <label><input type="radio" name="tier" value="not_sure"><span>Not sure yet</span></label>
+                </div>
+                <small class="error" data-error-for="tier"></small>
+              </label>
+
+              <label class="full">
+                <span>Tell us more about what you'd like to offer or support</span>
+                <textarea name="message" maxlength="600" placeholder="e.g. cash sponsorship, venue, tools, media coverage, mentorship..."></textarea>
+              </label>
+            </div>
+
+            <label class="consent">
+              <input type="checkbox" name="consent" required>
+              <span>I confirm the information above is accurate and I agree to be contacted by the EcoHackOyo partnerships team.</span>
+            </label>
+
+            <button class="btn btn-primary" type="submit">Submit Sponsorship Interest <span>→</span></button>
+            <div class="form-status" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand brand-light" href="index.html">
+          <span class="brand-mark" aria-hidden="true">🌱</span>
+          <span><strong>ECOHACKOYO</strong><small>OYO'S BIGGEST INNOVATION SUMMIT</small></span>
+        </a>
+        <p>A Minds Hive Organization initiative, convened by Olufemi Paul.</p>
+      </div>
+      <div>
+        <h3>Register</h3>
+        <a href="register-hackathon.html">Join the Hackathon</a>
+        <a href="register-summit.html">Attend the Summit</a>
+        <a href="register-sponsor.html">Become a Sponsor</a>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <a href="mailto:partnerships@ecohackoyo.org">partnerships@ecohackoyo.org</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 EcoHackOyo · Powered by Minds Hive Organization.</span>
+      <span><a href="index.html#faq">FAQ</a></span>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+  <script src="js/site.js" defer></script>
+  <script src="js/forms.js" defer></script>
+</body>
+</html>

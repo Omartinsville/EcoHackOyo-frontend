@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Register as a contestant for the EcoHackOyo Economic Hackathon — a free 4-week program for Oyo State youth, September 2026.">
+  <meta name="theme-color" content="#087a3d">
+  <title>Register as a Hackathon Contestant | EcoHackOyo 2026</title>
+  <link rel="icon" href="assets/ecohackoyo-flyer.jpg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <nav class="nav container" aria-label="Primary navigation">
+      <a class="brand" href="index.html" aria-label="EcoHackOyo home">
+        <span class="brand-mark" aria-hidden="true">🌱</span>
+        <span><strong>ECOHACKOYO</strong><small>OYO'S BIGGEST INNOVATION SUMMIT</small></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-menu" id="primary-menu">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="index.html#about">About</a>
+        <a class="nav-link" href="index.html#tracks">Programs</a>
+        <a class="nav-link" href="index.html#faq">FAQ</a>
+        <a class="nav-cta active" href="register-hackathon.html">Hackathon Signup</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="hero-pattern pattern-one" aria-hidden="true"></div>
+      <div class="container">
+        <p class="breadcrumb"><a href="index.html">Home</a> / Register as a Hackathon Contestant</p>
+        <span class="track-tag" style="margin-bottom:16px;">TRACK 01 · HACKATHON</span>
+        <h1>Register as a <em>Hackathon Contestant.</em></h1>
+        <p class="lead">Have an idea that can solve a real economic problem? Build with a team, get mentored, and pitch for a shot at showcasing live at the EcoHackOyo Main Event in Ibadan.</p>
+        <div class="meta-row">
+          <span class="pill">📅 September 2026 · 4 Weeks</span>
+          <span class="pill">💻 Online · Zoom + WhatsApp</span>
+          <span class="pill">🆓 Free — ₦0</span>
+          <span class="pill">🎟️ 500 Slots Only</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-page">
+      <div class="container form-page-grid">
+        <div class="form-side reveal">
+          <h2>What you'll do</h2>
+          <p>Across four weeks you will identify a real economic challenge, research it, build an innovative solution with a team, and pitch it before a panel of judges.</p>
+          <ul>
+            <li><b>01</b> Identify a real economic challenge</li>
+            <li><b>02</b> Research &amp; understand the problem</li>
+            <li><b>03</b> Develop an innovative solution</li>
+            <li><b>04</b> Build with a team, with mentor support</li>
+            <li><b>05</b> Create &amp; present your solution</li>
+            <li><b>06</b> Pitch before a panel of judges</li>
+          </ul>
+          <p style="margin-top:18px;">Top 20 participants showcase live at the Main Event on October 22–23 in Ibadan, before government representatives, investors and sponsors.</p>
+        </div>
+
+        <div class="form-card reveal reveal-delay">
+          <div class="notice-banner">
+            <b>ℹ️</b>
+            <span>Registration is free. Only 500 slots are available for the September 2026 cohort — early applications are prioritized.</span>
+          </div>
+
+          <form id="reg-form" data-ecohackoyo-form
+                data-success-title="You're registered!"
+                data-success-text="Thanks for applying to the EcoHackOyo Hackathon. We'll email and WhatsApp you with your cohort details and the September 2026 start date."
+                action="https://ecohackoyo-api.onrender.com/api/register/hackathon" method="POST">
+            <input type="hidden" name="form_type" value="Hackathon Contestant Registration">
+
+            <div class="form-grid">
+              <label class="full">
+                <span>Full name <span class="req">*</span></span>
+                <input type="text" name="full_name" required maxlength="80" placeholder="Your full name">
+                <small class="error" data-error-for="full_name"></small>
+              </label>
+
+              <label>
+                <span>Email address <span class="req">*</span></span>
+                <input type="email" name="email" required maxlength="120" placeholder="you@example.com">
+                <small class="error" data-error-for="email"></small>
+              </label>
+
+              <label>
+                <span>WhatsApp / Phone number <span class="req">*</span></span>
+                <input type="tel" name="phone" required maxlength="20" placeholder="080X XXX XXXX">
+                <small class="error" data-error-for="phone"></small>
+              </label>
+
+              <label>
+                <span>Age <span class="req">*</span></span>
+                <input type="number" name="age" required min="15" max="99" placeholder="e.g. 24">
+                <small class="error" data-error-for="age"></small>
+              </label>
+
+              <label>
+                <span>City / LGA in Oyo State <span class="req">*</span></span>
+                <input type="text" name="location" required maxlength="80" placeholder="e.g. Ibadan North">
+                <small class="error" data-error-for="location"></small>
+              </label>
+
+              <label class="full">
+                <span>Which best describes you? <span class="req">*</span></span>
+                <div class="radio-pills" data-radio-required="role">
+                  <label><input type="radio" name="role" value="student" required><span>Student</span></label>
+                  <label><input type="radio" name="role" value="young_entrepreneur"><span>Young Entrepreneur</span></label>
+                  <label><input type="radio" name="role" value="tech_digital_innovator"><span>Tech / Digital Innovator</span></label>
+                  <label><input type="radio" name="role" value="developer_designer"><span>Developer / Designer</span></label>
+                  <label><input type="radio" name="role" value="researcher"><span>Researcher</span></label>
+                  <label><input type="radio" name="role" value="creative_problem_solver"><span>Creative / Problem Solver</span></label>
+                  <label><input type="radio" name="role" value="other"><span>Other</span></label>
+                </div>
+                <small class="error" data-error-for="role"></small>
+              </label>
+
+              <label class="full">
+                <span>Which challenge area interests you most? <span class="req">*</span></span>
+                <select name="challenge_area" required>
+                  <option value="">Select one</option>
+                  <option value="youth_employment">Youth Employment</option>
+                  <option value="entrepreneurship_msmes">Entrepreneurship &amp; MSMEs</option>
+                  <option value="agriculture_agribusiness">Agriculture &amp; Agribusiness</option>
+                  <option value="digital_economy">Digital Economy</option>
+                  <option value="education_skills_development">Education &amp; Skills Development</option>
+                  <option value="financial_inclusion">Financial Inclusion</option>
+                  <option value="sustainability">Sustainability</option>
+                  <option value="local_economic_development">Local Economic Development</option>
+                  <option value="creative_economy">Creative Economy</option>
+                  <option value="technology_innovation">Technology &amp; Innovation</option>
+                </select>
+                <small class="error" data-error-for="challenge_area"></small>
+              </label>
+
+              <label class="full">
+                <span>Are you applying solo or with a team?</span>
+                <select name="team_status">
+                  <option value="solo">Solo — I'll be matched with a team</option>
+                  <option value="has_team">I already have a team</option>
+                </select>
+              </label>
+
+              <label class="full">
+                <span>Team name (if you already have one)</span>
+                <input type="text" name="team_name" maxlength="80" placeholder="Optional">
+              </label>
+
+              <label class="full">
+                <span>Briefly describe your idea or the problem you'd like to solve</span>
+                <textarea name="idea_summary" maxlength="600" placeholder="A few sentences is fine — you'll develop this further during the program."></textarea>
+                <small class="form-hint">Optional, but helps us match you to a challenge track and mentor.</small>
+              </label>
+
+              <label class="full">
+                <span>How did you hear about EcoHackOyo?</span>
+                <input type="text" name="referral_source" maxlength="120" placeholder="e.g. Instagram, a friend, Minds Hive">
+              </label>
+            </div>
+
+            <label class="consent">
+              <input type="checkbox" name="consent" required>
+              <span>I confirm the information above is accurate and I agree to be contacted by the EcoHackOyo team about this program.</span>
+            </label>
+
+            <button class="btn btn-primary" type="submit">Submit My Registration <span>→</span></button>
+            <div class="form-status" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand brand-light" href="index.html">
+          <span class="brand-mark" aria-hidden="true">🌱</span>
+          <span><strong>ECOHACKOYO</strong><small>OYO'S BIGGEST INNOVATION SUMMIT</small></span>
+        </a>
+        <p>A Minds Hive Organization initiative, convened by Olufemi Paul.</p>
+      </div>
+      <div>
+        <h3>Register</h3>
+        <a href="register-hackathon.html">Join the Hackathon</a>
+        <a href="register-summit.html">Attend the Summit</a>
+        <a href="register-sponsor.html">Become a Sponsor</a>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <a href="mailto:info@ecohackoyo.org">info@ecohackoyo.org</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 EcoHackOyo · Powered by Minds Hive Organization.</span>
+      <span><a href="index.html#faq">FAQ</a></span>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+  <script src="js/site.js" defer></script>
+  <script src="js/forms.js" defer></script>
+</body>
+</html>

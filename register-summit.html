@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Register to attend the EcoHackOyo Main Summit — October 22–23, 2026 in Ibadan, Oyo State. Free entry.">
+  <meta name="theme-color" content="#087a3d">
+  <title>Register for the Main Summit | EcoHackOyo 2026</title>
+  <link rel="icon" href="assets/ecohackoyo-flyer.jpg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <nav class="nav container" aria-label="Primary navigation">
+      <a class="brand" href="index.html" aria-label="EcoHackOyo home">
+        <span class="brand-mark" aria-hidden="true">🌱</span>
+        <span><strong>ECOHACKOYO</strong><small>OYO'S BIGGEST INNOVATION SUMMIT</small></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-menu" id="primary-menu">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="index.html#about">About</a>
+        <a class="nav-link" href="index.html#tracks">Programs</a>
+        <a class="nav-link" href="index.html#faq">FAQ</a>
+        <a class="nav-cta active" href="register-summit.html">Summit Signup</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="hero-pattern pattern-one" aria-hidden="true"></div>
+      <div class="container">
+        <p class="breadcrumb"><a href="index.html">Home</a> / Register for the Main Summit</p>
+        <span class="track-tag" style="margin-bottom:16px;">TRACK 02 · MAIN SUMMIT</span>
+        <h1>Register to <em>Attend the Summit.</em></h1>
+        <p class="lead">Be part of the biggest Economic Hackathon Summit in Oyo State. Two days of leadership sessions, panel conversations, networking and the live hackathon exhibition.</p>
+        <div class="meta-row">
+          <span class="pill">📅 October 22–23, 2026</span>
+          <span class="pill">📍 Ibadan, Oyo State</span>
+          <span class="pill">🆓 Free Entry</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-page">
+      <div class="container form-page-grid">
+        <div class="form-side reveal">
+          <h2>What to expect</h2>
+          <p>Are you a student, young professional, entrepreneur, innovator, community leader or young person passionate about economic development? This summit is for you.</p>
+          <ul>
+            <li><b>✓</b> Leadership &amp; Personal Development</li>
+            <li><b>✓</b> Economic Empowerment &amp; Opportunities</li>
+            <li><b>✓</b> Innovation &amp; Entrepreneurship</li>
+            <li><b>✓</b> Networking &amp; Collaboration</li>
+            <li><b>✓</b> Youth Engagement &amp; Civic Participation</li>
+            <li><b>✓</b> Panel Sessions &amp; Expert Conversations</li>
+          </ul>
+          <p style="margin-top:18px;">Powered by Minds Hive, in partnership with Oyo State Ministries and other partners.</p>
+        </div>
+
+        <div class="form-card reveal reveal-delay">
+          <div class="notice-banner">
+            <b>ℹ️</b>
+            <span>Attendance is free. You do not need to be a hackathon contestant to attend the Main Summit.</span>
+          </div>
+
+          <form id="reg-form" data-ecohackoyo-form
+                data-success-title="You're on the list!"
+                data-success-text="Thanks for registering to attend the EcoHackOyo Main Summit, October 22–23 in Ibadan. We'll email you closer to the date with venue and schedule details."
+                action="https://ecohackoyo-api.onrender.com/api/register/summit" method="POST">
+            <input type="hidden" name="form_type" value="Main Summit Attendee Registration">
+
+            <div class="form-grid">
+              <label class="full">
+                <span>Full name <span class="req">*</span></span>
+                <input type="text" name="full_name" required maxlength="80" placeholder="Your full name">
+                <small class="error" data-error-for="name"></small>
+              </label>
+
+              <label>
+                <span>Email address <span class="req">*</span></span>
+                <input type="email" name="email" required maxlength="120" placeholder="you@example.com">
+                <small class="error" data-error-for="email"></small>
+              </label>
+
+              <label>
+                <span>Phone number <span class="req">*</span></span>
+                <input type="tel" name="phone" required maxlength="20" placeholder="080X XXX XXXX">
+                <small class="error" data-error-for="phone"></small>
+              </label>
+
+              <label class="full">
+                <span>Which best describes you? <span class="req">*</span></span>
+                <div class="radio-pills" data-radio-required="category">
+                  <label><input type="radio" name="category" value="student_youth" required><span>Student / Youth</span></label>
+                  <label><input type="radio" name="category" value="entrepreneur_business_owner"><span>Entrepreneur / Business Owner</span></label>
+                  <label><input type="radio" name="category" value="innovator_creative"><span>Innovator / Creative</span></label>
+                  <label><input type="radio" name="category" value="community_builder"><span>Community Builder</span></label>
+                  <label><input type="radio" name="category" value="policy_maker_government"><span>Policy Maker / Government</span></label>
+                  <label><input type="radio" name="category" value="investor_sponsor_rep"><span>Investor / Sponsor Rep</span></label>
+                  <label><input type="radio" name="category" value="other"><span>Other</span></label>
+                </div>
+                <small class="error" data-error-for="category"></small>
+              </label>
+
+              <label class="full">
+                <span>Organization / School (if any)</span>
+                <input type="text" name="organization" maxlength="120" placeholder="Optional">
+              </label>
+
+              <label class="full">
+                <span>Are you also registered as a hackathon contestant?</span>
+                <select name="also_contestant">
+                  <option value="no">No</option>
+                  <option value="yes">Yes</option>
+                  <option value="interested">Not yet, but interested</option>
+                </select>
+              </label>
+
+              <label class="full">
+                <span>Anything you're most looking forward to?</span>
+                <textarea name="expectations" maxlength="400" placeholder="Optional"></textarea>
+              </label>
+            </div>
+
+            <label class="consent">
+              <input type="checkbox" name="consent" required>
+              <span>I confirm the information above is accurate and I agree to be contacted by the EcoHackOyo team about the Main Summit.</span>
+            </label>
+
+            <button class="btn btn-primary" type="submit">Register to Attend <span>→</span></button>
+            <div class="form-status" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand brand-light" href="index.html">
+          <span class="brand-mark" aria-hidden="true">🌱</span>
+          <span><strong>ECOHACKOYO</strong><small>OYO'S BIGGEST INNOVATION SUMMIT</small></span>
+        </a>
+        <p>A Minds Hive Organization initiative, convened by Olufemi Paul.</p>
+      </div>
+      <div>
+        <h3>Register</h3>
+        <a href="register-hackathon.html">Join the Hackathon</a>
+        <a href="register-summit.html">Attend the Summit</a>
+        <a href="register-sponsor.html">Become a Sponsor</a>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <a href="mailto:info@ecohackoyo.org">info@ecohackoyo.org</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 EcoHackOyo · Powered by Minds Hive Organization.</span>
+      <span><a href="index.html#faq">FAQ</a></span>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+  <script src="js/site.js" defer></script>
+  <script src="js/forms.js" defer></script>
+</body>
+</html>
