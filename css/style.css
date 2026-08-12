@@ -476,6 +476,7 @@ img { display: block; max-width: 100%; }
   min-height: 85px; border: 1px solid var(--line); border-radius: 14px; display: grid; place-items: center;
   color: var(--ink); font-size: .78rem; font-weight: 800; background: #fff; text-align: center; padding: 10px;
 }
+.partner-logo { max-width: 100%; max-height: 55px; object-fit: contain; }
 .convener-card {
   margin-top: 40px; display: flex; align-items: center; gap: 20px; background: var(--off-white);
   border: 1px solid var(--line); border-radius: 20px; padding: 24px 28px; flex-wrap: wrap;
