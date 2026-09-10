@@ -69,16 +69,18 @@
             <span>Attendance is free. You do not need to be a hackathon contestant to attend the Main Summit.</span>
           </div>
 
-          <form id="reg-form" data-ecohackoyo-form
+          <form id="reg-form" data-ecohackoyo-form data-endpoint="summit"
                 data-success-title="You're on the list!"
                 data-success-text="Thanks for registering to attend the EcoHackOyo Main Summit, October 22–23 in Ibadan. We'll email you closer to the date with venue and schedule details."
-                action="https://ecohackoyo-api.onrender.com/api/register/summit" method="POST">
+                action="https://formspree.io/f/REPLACE_WITH_SUMMIT_FORM_ID" method="POST">
             <input type="hidden" name="form_type" value="Main Summit Attendee Registration">
+            <input type="text" name="company_website" autocomplete="off" tabindex="-1"
+                   style="position:absolute; left:-9999px; width:1px; height:1px;" aria-hidden="true">
 
             <div class="form-grid">
               <label class="full">
                 <span>Full name <span class="req">*</span></span>
-                <input type="text" name="full_name" required maxlength="80" placeholder="Your full name">
+                <input type="text" name="name" required maxlength="80" placeholder="Your full name">
                 <small class="error" data-error-for="name"></small>
               </label>
 
@@ -97,13 +99,13 @@
               <label class="full">
                 <span>Which best describes you? <span class="req">*</span></span>
                 <div class="radio-pills" data-radio-required="category">
-                  <label><input type="radio" name="category" value="student_youth" required><span>Student / Youth</span></label>
-                  <label><input type="radio" name="category" value="entrepreneur_business_owner"><span>Entrepreneur / Business Owner</span></label>
-                  <label><input type="radio" name="category" value="innovator_creative"><span>Innovator / Creative</span></label>
-                  <label><input type="radio" name="category" value="community_builder"><span>Community Builder</span></label>
-                  <label><input type="radio" name="category" value="policy_maker_government"><span>Policy Maker / Government</span></label>
-                  <label><input type="radio" name="category" value="investor_sponsor_rep"><span>Investor / Sponsor Rep</span></label>
-                  <label><input type="radio" name="category" value="other"><span>Other</span></label>
+                  <label><input type="radio" name="category" value="Student / Youth" required><span>Student / Youth</span></label>
+                  <label><input type="radio" name="category" value="Entrepreneur / Business Owner"><span>Entrepreneur / Business Owner</span></label>
+                  <label><input type="radio" name="category" value="Innovator / Creative"><span>Innovator / Creative</span></label>
+                  <label><input type="radio" name="category" value="Community Builder"><span>Community Builder</span></label>
+                  <label><input type="radio" name="category" value="Policy Maker / Government"><span>Policy Maker / Government</span></label>
+                  <label><input type="radio" name="category" value="Investor / Sponsor Rep"><span>Investor / Sponsor Rep</span></label>
+                  <label><input type="radio" name="category" value="Other"><span>Other</span></label>
                 </div>
                 <small class="error" data-error-for="category"></small>
               </label>
@@ -116,9 +118,9 @@
               <label class="full">
                 <span>Are you also registered as a hackathon contestant?</span>
                 <select name="also_contestant">
-                  <option value="no">No</option>
-                  <option value="yes">Yes</option>
-                  <option value="interested">Not yet, but interested</option>
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
+                  <option value="Not yet, but interested">Not yet, but interested</option>
                 </select>
               </label>
 
