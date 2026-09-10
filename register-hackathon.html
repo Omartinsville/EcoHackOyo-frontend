@@ -70,17 +70,19 @@
             <span>Registration is free. Only 500 slots are available for the September 2026 cohort — early applications are prioritized.</span>
           </div>
 
-          <form id="reg-form" data-ecohackoyo-form
+          <form id="reg-form" data-ecohackoyo-form data-endpoint="hackathon"
                 data-success-title="You're registered!"
                 data-success-text="Thanks for applying to the EcoHackOyo Hackathon. We'll email and WhatsApp you with your cohort details and the September 2026 start date."
-                action="https://ecohackoyo-api.onrender.com/api/register/hackathon" method="POST">
+                action="https://formspree.io/f/REPLACE_WITH_HACKATHON_FORM_ID" method="POST">
             <input type="hidden" name="form_type" value="Hackathon Contestant Registration">
+            <input type="text" name="company_website" autocomplete="off" tabindex="-1"
+                   style="position:absolute; left:-9999px; width:1px; height:1px;" aria-hidden="true">
 
             <div class="form-grid">
               <label class="full">
                 <span>Full name <span class="req">*</span></span>
-                <input type="text" name="full_name" required maxlength="80" placeholder="Your full name">
-                <small class="error" data-error-for="full_name"></small>
+                <input type="text" name="name" required maxlength="80" placeholder="Your full name">
+                <small class="error" data-error-for="name"></small>
               </label>
 
               <label>
@@ -110,13 +112,13 @@
               <label class="full">
                 <span>Which best describes you? <span class="req">*</span></span>
                 <div class="radio-pills" data-radio-required="role">
-                  <label><input type="radio" name="role" value="student" required><span>Student</span></label>
-                  <label><input type="radio" name="role" value="young_entrepreneur"><span>Young Entrepreneur</span></label>
-                  <label><input type="radio" name="role" value="tech_digital_innovator"><span>Tech / Digital Innovator</span></label>
-                  <label><input type="radio" name="role" value="developer_designer"><span>Developer / Designer</span></label>
-                  <label><input type="radio" name="role" value="researcher"><span>Researcher</span></label>
-                  <label><input type="radio" name="role" value="creative_problem_solver"><span>Creative / Problem Solver</span></label>
-                  <label><input type="radio" name="role" value="other"><span>Other</span></label>
+                  <label><input type="radio" name="role" value="Student" required><span>Student</span></label>
+                  <label><input type="radio" name="role" value="Young Entrepreneur"><span>Young Entrepreneur</span></label>
+                  <label><input type="radio" name="role" value="Tech / Digital Innovator"><span>Tech / Digital Innovator</span></label>
+                  <label><input type="radio" name="role" value="Developer / Designer"><span>Developer / Designer</span></label>
+                  <label><input type="radio" name="role" value="Researcher"><span>Researcher</span></label>
+                  <label><input type="radio" name="role" value="Creative / Problem Solver"><span>Creative / Problem Solver</span></label>
+                  <label><input type="radio" name="role" value="Other"><span>Other</span></label>
                 </div>
                 <small class="error" data-error-for="role"></small>
               </label>
@@ -125,16 +127,16 @@
                 <span>Which challenge area interests you most? <span class="req">*</span></span>
                 <select name="challenge_area" required>
                   <option value="">Select one</option>
-                  <option value="youth_employment">Youth Employment</option>
-                  <option value="entrepreneurship_msmes">Entrepreneurship &amp; MSMEs</option>
-                  <option value="agriculture_agribusiness">Agriculture &amp; Agribusiness</option>
-                  <option value="digital_economy">Digital Economy</option>
-                  <option value="education_skills_development">Education &amp; Skills Development</option>
-                  <option value="financial_inclusion">Financial Inclusion</option>
-                  <option value="sustainability">Sustainability</option>
-                  <option value="local_economic_development">Local Economic Development</option>
-                  <option value="creative_economy">Creative Economy</option>
-                  <option value="technology_innovation">Technology &amp; Innovation</option>
+                  <option>Youth Employment</option>
+                  <option>Entrepreneurship &amp; MSMEs</option>
+                  <option>Agriculture &amp; Agribusiness</option>
+                  <option>Digital Economy</option>
+                  <option>Education &amp; Skills Development</option>
+                  <option>Financial Inclusion</option>
+                  <option>Sustainability</option>
+                  <option>Local Economic Development</option>
+                  <option>Creative Economy</option>
+                  <option>Technology &amp; Innovation</option>
                 </select>
                 <small class="error" data-error-for="challenge_area"></small>
               </label>
@@ -142,8 +144,8 @@
               <label class="full">
                 <span>Are you applying solo or with a team?</span>
                 <select name="team_status">
-                  <option value="solo">Solo — I'll be matched with a team</option>
-                  <option value="has_team">I already have a team</option>
+                  <option value="Solo — I'll be matched with a team">Solo — I'll be matched with a team</option>
+                  <option value="I already have a team">I already have a team</option>
                 </select>
               </label>
 
