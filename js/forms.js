@@ -4,40 +4,20 @@
   // This file powers every registration form on the site (hackathon, main
   // summit, sponsor). Each <form> needs:
   //   - id="reg-form"
-  //   - action="https://api.ecohackoyo.org/api/register/<hackathon|summit|sponsor>"
-  //   - data-success-title / data-success-text (optional overrides)
-  // Submissions are sent as JSON to the custom Postgres-backed API (see
-  // backend/README.md) — field names in each HTML form must match what
-  // server.js expects (full_name, organization_name, etc).
+  //   - data-ecohackoyo-form
+  //   - data-endpoint="hackathon" | "summit" | "sponsor"
+  //   - data-success-title / data-success-text (fallback copy — used only if
+  //     the API response doesn't include its own message)
+  //
+  // ---------------------------------------------------------------------
+  // ONE PLACE TO CONFIGURE: set this to your deployed API's base URL once
+  // (see backend/README.md), and it applies to all three registration
+  // pages automatically — you don't need to edit each HTML file's <form
+  // action="...">.
+  // ---------------------------------------------------------------------
+  const API_BASE = "REPLACE_WITH_API_BASE_URL"; // e.g. "https://api.ecohackoyo.org"
 
   const forms = document.querySelectorAll("form[data-ecohackoyo-form]");
-
-  async function submitForm(form) {
-    const payload = Object.fromEntries(new FormData(form).entries());
-
-    // checkbox comes through as "on"/undefined — normalize to a real boolean
-    payload.consent = form.querySelector('[name="consent"]')?.checked === true;
-
-    const response = await fetch(form.getAttribute("action"), {
-      method: "POST",
-      headers: { "Content-Type": "application/json", 
-      Accept: "application/json",
-      "ngrok-skip-browser-warning": "true"},
-      body: JSON.stringify(payload)
-    });
-
-    const data = await response.json().catch(() => ({}));
-
-    if (!response.ok) {
-      // server.js returns { error, details: [...] } on 400, { error } on 409/500
-      const message = Array.isArray(data.details) && data.details.length
-        ? data.details.join(", ")
-        : (data.error || "Submission failed. Please try again.");
-      throw new Error(message);
-    }
-
-    return data;
-  }
 
   forms.forEach(form => {
     const submitBtn = form.querySelector('[type="submit"]');
@@ -115,6 +95,27 @@
       return valid;
     };
 
+    // Build a plain JSON payload from the form. The honeypot field is sent
+    // too — the API silently no-ops when it's filled in (bots only), and
+    // ignores it otherwise.
+    const buildPayload = () => {
+      const payload = {};
+      new FormData(form).forEach((value, key) => {
+        payload[key] = value;
+      });
+      payload.consent = form.querySelector('input[name="consent"]')?.checked === true;
+      return payload;
+    };
+
+    const resolveAction = () => {
+      const endpoint = form.dataset.endpoint;
+      const usingApi = API_BASE && !API_BASE.includes("REPLACE_WITH") && endpoint;
+      if (usingApi) return `${API_BASE.replace(/\/$/, "")}/api/register/${endpoint}`;
+      // Fall back to whatever's on the action attribute (e.g. Formspree),
+      // for anyone who hasn't migrated to the Postgres API yet.
+      return form.getAttribute("action") || "";
+    };
+
     form.addEventListener("submit", async event => {
       event.preventDefault();
       if (statusEl) {
@@ -124,13 +125,13 @@
 
       if (!validate()) return;
 
-      const action = form.getAttribute("action") || "";
+      const action = resolveAction();
       const notConfigured = !action || action.includes("REPLACE_WITH");
 
       if (notConfigured) {
         if (statusEl) {
           statusEl.textContent =
-            "Form isn't connected yet — the site owner needs to set the API endpoint (see backend/README.md).";
+            "Form isn't connected yet — the site owner needs to set API_BASE in js/forms.js (see backend/README.md).";
           statusEl.className = "form-status error-status";
         }
         return;
@@ -142,13 +143,31 @@
       }
 
       try {
-        await submitForm(form);
-        showSuccess(form, cardEl);
+        const response = await fetch(action, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(buildPayload())
+        });
+
+        let data = {};
+        try {
+          data = await response.json();
+        } catch {
+          /* non-JSON response (e.g. Formspree fallback) — proceed with an empty object */
+        }
+
+        if (response.ok) {
+          showSuccess(form, cardEl, data);
+        } else {
+          if (statusEl) {
+            statusEl.textContent =
+              data.error || "Something went wrong sending your registration. Please try again.";
+            statusEl.className = "form-status error-status";
+          }
+        }
       } catch (err) {
         if (statusEl) {
-          statusEl.textContent =
-            err.message ||
-            "Something went wrong sending your registration. Please try again, or reach us directly using the contact details in the footer.";
+          statusEl.textContent = "Something went wrong sending your registration. Please try again, or reach us directly using the contact details in the footer.";
           statusEl.className = "form-status error-status";
         }
       } finally {
@@ -160,14 +179,18 @@
     });
   });
 
-  function showSuccess(form, cardEl) {
-    const title = form.dataset.successTitle || "You're in!";
+  function showSuccess(form, cardEl, data = {}) {
+    const title = data.participant_code
+      ? `You're in! Your ID: ${data.participant_code}`
+      : form.dataset.successTitle || "You're in!";
     const text =
       form.dataset.successText ||
-      "Thanks for registering for EcoHackOyo. Check your email (and WhatsApp) for confirmation and next steps.";
+      "Thanks for registering for EcoHackOyo. Check your email for confirmation and next steps.";
+    const whatsappLink = data.whatsapp_link;
 
     if (!cardEl) {
       form.reset();
+      if (whatsappLink) window.location.href = whatsappLink;
       return;
     }
 
@@ -177,8 +200,27 @@
       <div class="icon">✓</div>
       <h3>${title}</h3>
       <p>${text}</p>
-      <a class="btn btn-primary" href="index.html">Back to Home</a>
+      ${
+        data.participant_no
+          ? `<p class="participant-code">Save your participant ID: <strong>${data.participant_code}</strong></p>`
+          : ""
+      }
+      ${
+        whatsappLink
+          ? `<p class="redirect-note" id="redirect-note">Redirecting you to the WhatsApp group…</p>
+             <a class="btn btn-primary" href="${whatsappLink}" target="_blank" rel="noopener">Join WhatsApp Group Now <span>→</span></a>`
+          : `<a class="btn btn-primary" href="index.html">Back to Home</a>`
+      }
     `;
     form.replaceWith(panel);
+
+    // Give the success message a beat to register before sending them off
+    // to WhatsApp. The manual button above is the fallback if a browser
+    // blocks the automatic navigation.
+    if (whatsappLink) {
+      window.setTimeout(() => {
+        window.location.href = whatsappLink;
+      }, 1800);
+    }
   }
 })();
