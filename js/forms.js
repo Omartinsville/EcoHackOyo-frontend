@@ -15,7 +15,7 @@
   // pages automatically — you don't need to edit each HTML file's <form
   // action="...">.
   // ---------------------------------------------------------------------
-  const API_BASE = "REPLACE_WITH_API_BASE_URL"; // e.g. "https://api.ecohackoyo.org"
+  const API_BASE = "https://ecohackoyo-api.onrender.com"; // e.g. "https://api.ecohackoyo.org"
 
   const forms = document.querySelectorAll("form[data-ecohackoyo-form]");
 
