@@ -101,29 +101,31 @@
         </div>
 
         <div class="form-card reveal reveal-delay">
-          <form id="reg-form" data-ecohackoyo-form
+          <form id="reg-form" data-ecohackoyo-form data-endpoint="sponsor"
                 data-success-title="Thank you!"
                 data-success-text="Thanks for your interest in sponsoring EcoHackOyo. Our partnerships team will reach out within a few business days to discuss tiers and next steps."
-                action="https://ecohackoyo-api.onrender.com/api/register/sponsor" method="POST">
+                action="https://formspree.io/f/REPLACE_WITH_SPONSOR_FORM_ID" method="POST">
             <input type="hidden" name="form_type" value="Sponsor Registration">
+            <input type="text" name="company_website" autocomplete="off" tabindex="-1"
+                   style="position:absolute; left:-9999px; width:1px; height:1px;" aria-hidden="true">
 
             <div class="form-grid">
               <label class="full">
                 <span>Organization name <span class="req">*</span></span>
-                <input type="text" name="organization_name" required maxlength="120" placeholder="Your organization">
-                <small class="error" data-error-for="organization_name"></small>
+                <input type="text" name="organization" required maxlength="120" placeholder="Your organization">
+                <small class="error" data-error-for="organization"></small>
               </label>
 
               <label>
                 <span>Contact person <span class="req">*</span></span>
-                <input type="text" name="contact_name" required maxlength="80" placeholder="Full name">
-                <small class="error" data-error-for="contact_name"></small>
+                <input type="text" name="name" required maxlength="80" placeholder="Full name">
+                <small class="error" data-error-for="name"></small>
               </label>
 
               <label>
                 <span>Role / title <span class="req">*</span></span>
-                <input type="text" name="contact_role" required maxlength="80" placeholder="e.g. Marketing Lead">
-                <small class="error" data-error-for="contact_role"></small>
+                <input type="text" name="role" required maxlength="80" placeholder="e.g. Marketing Lead">
+                <small class="error" data-error-for="role"></small>
               </label>
 
               <label>
@@ -146,10 +148,10 @@
               <label class="full">
                 <span>Sponsorship interest <span class="req">*</span></span>
                 <div class="radio-pills" data-radio-required="tier">
-                  <label><input type="radio" name="tier" value="exhibition_in_kind" required><span>Exhibition / In-Kind</span></label>
-                  <label><input type="radio" name="tier" value="gold"><span>Gold Sponsor</span></label>
-                  <label><input type="radio" name="tier" value="platinum"><span>Platinum / Headline</span></label>
-                  <label><input type="radio" name="tier" value="not_sure"><span>Not sure yet</span></label>
+                  <label><input type="radio" name="tier" value="Exhibition / In-Kind" required><span>Exhibition / In-Kind</span></label>
+                  <label><input type="radio" name="tier" value="Gold Sponsor"><span>Gold Sponsor</span></label>
+                  <label><input type="radio" name="tier" value="Platinum / Headline"><span>Platinum / Headline</span></label>
+                  <label><input type="radio" name="tier" value="Not sure yet"><span>Not sure yet</span></label>
                 </div>
                 <small class="error" data-error-for="tier"></small>
               </label>
