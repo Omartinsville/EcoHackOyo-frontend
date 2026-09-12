@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Register to attend the EcoHackOyo Main Summit — October 22–23, 2026 in Ibadan, Oyo State. Free entry.">
+  <meta name="description" content="Register to attend the EcoHackOyo Main Summit — November 27–28, 2026. Free entry. Venue to be announced.">
   <meta name="theme-color" content="#087a3d">
   <title>Register for the Main Summit | EcoHackOyo 2026</title>
   <link rel="icon" href="assets/ecohackoyo-flyer.jpg">
@@ -40,8 +40,8 @@
         <h1>Register to <em>Attend the Summit.</em></h1>
         <p class="lead">Be part of the biggest Economic Hackathon Summit in Oyo State. Two days of leadership sessions, panel conversations, networking and the live hackathon exhibition.</p>
         <div class="meta-row">
-          <span class="pill">📅 October 22–23, 2026</span>
-          <span class="pill">📍 Ibadan, Oyo State</span>
+          <span class="pill">📅 <span data-cfg="summitDate">November 27–28, 2026</span></span>
+          <span class="pill">📍 <span data-cfg="location">Location to be announced</span></span>
           <span class="pill">🆓 Free Entry</span>
         </div>
       </div>
@@ -71,7 +71,7 @@
 
           <form id="reg-form" data-ecohackoyo-form data-endpoint="summit"
                 data-success-title="You're on the list!"
-                data-success-text="Thanks for registering to attend the EcoHackOyo Main Summit, October 22–23 in Ibadan. We'll email you closer to the date with venue and schedule details."
+                data-success-text="Thanks for registering to attend the EcoHackOyo Main Summit, November 27–28, 2026. We'll email you closer to the date with venue and schedule details."
                 action="https://formspree.io/f/REPLACE_WITH_SUMMIT_FORM_ID" method="POST">
             <input type="hidden" name="form_type" value="Main Summit Attendee Registration">
             <input type="text" name="company_website" autocomplete="off" tabindex="-1"
@@ -160,7 +160,7 @@
       </div>
       <div>
         <h3>Contact</h3>
-        <a href="mailto:info@ecohackoyo.org">info@ecohackoyo.org</a>
+        <a href="mailto:ecohack@gmail.com" data-cfg-mailto="emailGeneral">ecohack@gmail.com</a>
       </div>
     </div>
     <div class="container footer-bottom">
@@ -170,6 +170,8 @@
   </footer>
 
   <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+  <script src="js/config.js" defer></script>
+  <script src="js/apply-config.js" defer></script>
   <script src="js/site.js" defer></script>
   <script src="js/forms.js" defer></script>
 </body>
